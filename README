@@ -1,25 +1,14 @@
-statprof, version 0.2
----------------------
+# statprof
 
-This is a simple statistical profiler for Gambit-C 4.0
+a simple statistical profiler for Gambit.
 
-Written by Guillaume Germain, with some code from Marc Feeley.
-
-Questions, comments, feature requests and bug reports are welcome.
-Please send them to <germaing@iro.umontreal.ca>
-
-This code is released under the same license as Gambit-C itself.
-
-This is a beta release, but should work fine.
-
-
--- Description --
+## Description
 
 A statistical profiler is a program that will take snapshots of the
 state of another program at regular intervals to get information about
 where that program is spending its time.
 
-This particular statistical profiler works by using Gambit-C's
+This particular statistical profiler works by using Gambit's
 interrupt handler to identify where the code was interrupted.
 
 It generates an HTML version of the source code with colors added to
@@ -34,19 +23,27 @@ number, then the second column is how many times the code was
 interrupted at that point out of how many interruptions.
 
 
--- How to use it --
+## Usage
 
 You use it with the following three functions:
 
-PROFILE-START! 
+PROFILE-START!
   -- begin the profiling
 
-PROFILE-STOP!  
+PROFILE-STOP!
   -- end the profiling
-  
-WRITE-PROFILE-REPORT <profile-name> 
+
+WRITE-PROFILE-REPORT <profile-name>
   -- output the data (annotated source) in HTML files in a
      <profile-name> sub-directory created in the current directory.
 
 
-See the file 'example.scm' for an example of use.
+See the file 'examples/example.scm' for a simple demo of how to use this libray.
+
+## License
+
+This code is released under the same license as Gambit itself.
+
+## Authors
+
+Written by Guillaume Germain, with some code from Marc Feeley.
