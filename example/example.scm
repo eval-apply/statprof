@@ -1,6 +1,6 @@
 #!/usr/bin/env gsi-script
 
-(load "statprof.scm")
+(load "../statprof.scm")
 
 (define (main)
 
