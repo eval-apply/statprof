@@ -14,10 +14,10 @@
 (define (profile-start!)
   (set! *buckets* '())
   (set! *total* 0)
-  (##interrupt-vector-set! 1 profile-heartbeat!))
+  (##interrupt-vector-set! 2 profile-heartbeat!))
 
 (define (profile-stop!)
-  (##interrupt-vector-set! 1 ##thread-heartbeat!))
+  (##interrupt-vector-set! 2 ##thread-heartbeat!))
 
 ;; (define (identify-continuation cont) ; first version
 ;;   (or (##continuation-creator cont)
@@ -30,8 +30,8 @@
                (file (##container->path container)))
           (if file
               (let* ((filepos (##position->filepos (##locat-position locat)))
-                     (line (##fixnum.+ (##filepos-line filepos) 1))
-                     (col (##fixnum.+ (##filepos-col filepos) 1)))
+                     (line (##fx+ (##filepos-line filepos) 1))
+                     (col (##fx+ (##filepos-col filepos) 1)))
                 (list file line col))
               'unknown))
         'unknown)))
